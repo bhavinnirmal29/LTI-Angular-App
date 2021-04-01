@@ -1,0 +1,58 @@
+<!-- <p>register works!</p> -->
+<div class="body-center">
+    <div class="container">
+        <div class="container">
+            <h3 class="login-head">Register to explore amazing career opportunities</h3>
+        </div>
+        <form  name="regForm" #regForm="ngForm" (ngSubmit)="RegisterData(regForm)">
+            <div class="center-align">
+                <label for="username">Username<br>
+                <input class="input-style" type="text" placeholder="Enter Username" name="username" [(ngModel)]="model.username" #username="ngModel" required /><br>
+                <span  style="color:red" *ngIf="username.errors?.required">Username cannot be blank</span>
+                </label>
+            </div>
+            
+            <div class="center-align">
+                <label for="pwd">Password<br>
+                <input class="input-style" type="password" placeholder="Enter Password" name="pwd" [(ngModel)]="model.pwd" #pwd="ngModel"
+                minlength="4" maxlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$%&]).*$" required/>
+                <br>
+                <span style="color:red" *ngIf="pwd.errors?.required">Password cannot be blank</span>
+                <span style="color:red" *ngIf="pwd.errors?.pattern">Password should have 1 uppercase, lower case, digits and special character</span><br>
+                <span style="color:red" *ngIf="pwd.errors?.minlength">Minimum Password Length is 4 characters</span>
+                </label>
+            </div>
+            <div class="center-align">
+                <label for="email1">Email Address<br>
+                <input class="input-style" type="text" name="email1" placeholder="Enter Email" [(ngModel)]="model.email1" #email1="ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required/>
+                <br>
+                <span style="color:red" *ngIf="email1.errors?.required">Email cannot be blank</span><br>
+                <span style="color:red" *ngIf="email1.errors?.pattern">Invalid Email</span>
+                </label>
+            </div>
+            <div class="center-align">
+                <label for="city">City<br>
+                <input class="input-style" type="text" name="city" placeholder="Enter City" [(ngModel)]="model.city" #city="ngModel" required/>
+                <br>
+                <span style="color:red" *ngIf="city.errors?.required">City cannot be Blank</span>
+                </label>
+               
+            </div>
+            <div class="center-align">
+                <label for="mobile">Mobile No.<br>
+                <input class="input-style" type="number" name="mobile" placeholder="Enter Mobile No." [(ngModel)]="model.mobile" #mobile="ngModel" maxlength="10" required/>
+                <br>
+                <span style="color: red;" *ngIf="mobile.errors?.required">Mobile No. cannot be blank</span>
+                <br>
+                <span style="color: red;" *ngIf="mobile.errors?.maxlength">Mobile No. length must be 10 digits</span>
+                </label>
+            </div>
+            <div class="center-align">
+                <button class="input-style register-button-style" type="submit" [disabled] = "regForm.invalid">Register</button>
+            </div>
+        </form>
+    </div>
+    <app-footercomponent>
+
+    </app-footercomponent>
+</div>

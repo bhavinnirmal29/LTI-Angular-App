@@ -1,0 +1,15 @@
+.container{
+    margin-left:12.5%;
+    margin-right: 12.5%;
+    background-color: white;
+}
+.footer-style{
+    font-size: small;
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color : rgb(184, 184, 184);
+    font-weight: bold;
+    /* margin-top: 10px; */
+}

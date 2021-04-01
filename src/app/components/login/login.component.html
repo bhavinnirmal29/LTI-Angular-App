@@ -1,0 +1,39 @@
+<div class="body-center">
+    <div class="container">
+        <h3 class="login-head">Login to a world of opportunities!</h3>
+        <form [formGroup]="regForm" (ngSubmit)="RegisterData()">
+            <div class="center-align">
+                <label for="username">Username<br>
+                <input class="input-style" type="text" formControlName="username" placeholder="Enter Username" />
+                <br>
+                <span style="color:red" *ngIf="regForm.controls['username'].hasError('required')">Username cannot be Blank</span>
+                </label>
+            </div>
+            <div class="center-align">
+                <label for="pwd">Password<br>
+                <input class="input-style" type="password" formControlName="txtpwd" placeholder="Enter Password"/>
+                <br>
+                <span style="color:red" *ngIf="regForm.controls['txtpwd'].hasError('required')">Password cannot be Blank</span><br>
+                <span style="color:red" *ngIf="regForm.controls['txtpwd'].hasError('minlength')">Password Length should be 4 digit</span><br>
+                <span style="color:red" *ngIf="regForm.controls['txtpwd'].hasError('maxlength')">Password Length should be less than = 8 digit</span><br>
+                <span style="color:red" *ngIf="regForm.controls['txtpwd'].hasError('pattern')">Invalid Pattern</span>
+                </label>
+            </div>
+            <div class="center-align">
+                <button class="input-style register-button-style" type="submit" [disabled] = "regForm.invalid">Login</button>
+            </div>
+            <div class="center-align">
+                <input type="checkbox" formControlName="remember"/>&nbsp;Remember Me
+            </div>
+            <div style="padding-bottom: 20px;">
+                <div class="small-block">
+                    <p><span><input class="cancel-button" type="reset" value="Cancel"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Forgot  <a href="#!">Password?</a></span></p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <app-footercomponent>
+        
+    </app-footercomponent>
+    
+</div>
